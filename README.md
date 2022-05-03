@@ -11,9 +11,11 @@ Análisis sobre ejemplos de periodismo de datos (esencialmente, visualizaciones)
 Creación de una noticia propia usando visualizaciones de datos de otras fuentes.
 - [Práctica 2](practica-2.md)
 ### Práctica 3
-Uso de APIs con pandas en Python (a través de Jupyter) para acceder, explorar y visualizar datos relacionados con el Covid-19. 
+Uso de APIs con pandas en Python (a través de Jupyter) para acceder, explorar y visualizar datos relacionados con el Covid-19 y accidentes de tráfico en Zaragoza (sobre mapa a través de folium). 
 - [Práctica 3 ipynb:](python-api-covid19-pandas%20(1).ipynb) Todos los pasos llevados a cabos con explicaciones sobre cada uno.
 - [Práctica 3 html:](python-api-covid19-pandas%20(1).html) Documento anterior en formato html.
+- [Práctica 3 mapa ipynb:](api-pandas-folium.ipynb) segunda parte de la práctica 3, usando folium para visualizar datos sobre mapas.
+- [Práctica 3 mapa html:](api-pandas-folium.html) mismo documento en formato html.
 - [Práctica 3 reflexión:](practica-3.md) Reflexionamos sobre lo que hemos hecho, para qué entendemos que lo hemos hecho y qué nos faltaría por comprender.
 - [Conjunto de datos usado:](esvsitvsmx.csv) en formato CSV.
 - [Visualización:](esvsitvsmx.png) en formato png.
