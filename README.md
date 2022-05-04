@@ -26,3 +26,5 @@ Siguiendo la metodología de la práctica 3, escogemos una base de datos de mane
 - [Práctica 4 reflexión](practica-4.md)
 - [Conjunto de datos](practica-4.csv)
 - [Visualización](practica-4.png)
+### Trabajo final
+Para el trabajo final de la asignatura, hemos creado un nuevo repositorio dentro de la organización "Pontedatos" donde hemos compilado todos los trabajos realizados a lo largo del curso. Luego, hemos creado una página web sobre ese mismo repositorio usando Github. También [hemos documentado ambos procesos](metodologia.md), así como [resumido el aprendizaje del uso de programas de emulación de la erminal a lo largo del curso](resumen.md). 
