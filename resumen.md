@@ -3,11 +3,14 @@ Como parte del trabajo final de la asignatura Periodismo de datos, hemos de docu
 
 ## Instalación del programa de emulación de la terminal
 El primer paso que tuvimos que llevar a cabo fue instalar un emulador de la terminal de Linux en nuestros ordenadores. En mi caso, usuaria de Windows, hice lo siguiente. Entré en la Windows Power Shell y con el comando, opciones y argumento `wsl -- install -d Ubuntu` descargué el emulador Ubuntu.
+
 Más adelante en el curso también instalamos Cygwin para usarlo con la misma función que usabamos Ubuntu. Cygwin es un emulador de Unix para Windows. A diferencia de Ubuntu, lo hemos descargado directamente de la web. Ejecutamos el archivo `setup-x86_64.exe` para instalarlo en nuestro ordenador. Una vez lo hayamos hecho, nos preguntará si queremos instalar paquetes antes de culminar la instalación de la aplicación en sí. Hemos instalado `libcurl14`, `wget`, `ca-certificates-letsencrypt`, `linx`, `nano`y `openssl`. 
 
 ## Configuración de un programa de edición de texto
 Para editar nuestros textos hemos usado nano desde el emulador de la terminal. En nano, por defecto, cada línea es un párrafo, así que la visualización no era muy cómoda (porque solemos hacer párrafos más largos que el ancho de una pantalla). Lo solucionamos añadiendo el "linesoftwrap" al archivo de configuración.
+
 Para hacerlo, tenemos que ubicar dicho archivo de configuración. Usamos `echo $HOME`. HOME es una variable de entorno (por eso va precedida de $) del lugar de inicio, el entorno de usuario. `echo` es un comando que nos devuelve en pantalla el argumento que hemos especificado. Te devuelve cuál es tu $HOME, en mi caso,"/home/raquelsg". Con `env` podemos todas las variables de entorno que tenemos (hicimos `env|less` para leerlas mejor).
+
 Ubicamos el archivo de configuración (nano.rc) y lo abrimos con nano para editarlo: `nano/home/raquelsg/ .nano.rc`. Allí escribimos las dos cosas que queremos que se configuren para nano: `set softwrap` y `set linenumbers`. Podemos añadir en otra línea con una # un comentario que explique que hace cada una, respectivamente, ajustar el texto a pantalla y numerar las líneas. 
 
 ### Markdown
@@ -15,11 +18,14 @@ En nano vamos a usar la sintaxis simple de Markdown, un lenguaje estructurado. A
 
 ## Configuración del programa
 Primero, conocemos la existencia de un manual de uso abrimos "man" (el manual de uso) con `more`(saldrá esta opción por defecto), que permite visualizarlo (no editarlo) por páginas. Para visualizarlo línea línea podemos usar `less`. Escribimos man ls|less".  Podemos usarlo si tenemos dudas no solo en la configuración del programa, sino también para los comandos que explicaremos en un punto posterior del presente documento.
+
 Para la configuración del programa hemos hecho varias cosas relevantes. La más importante fue configurar git. En el caso de Cygwin, también es importante mencionar el cambio de la *home* a la de Windows. Por último, explicaremos cómo establecimos un alias equivalente a la ruta de nuestro directorio de trabajo. 
 
 ### Configuración de git
 Este paso fue vital para la realización de las diferentes prácticas que hemos llevado a cabo enlazadas en [el README](README.md). Configuramos git para poder hacer cambios en nuestro ordenador y vincularlos con nuestro respositorio de Github (online), sirviéndonos también de varios comandos que se explican en una parte posterior del presente documento. 
+
 Para configurar nuestro usuario de git en el emulador de la terminal usaremos el comando `git config`. Ejecutaremos este comando dos veces usando diferentes opciones (y consiguientes argumentos). El primero es `--global user.name`, cuyo argumento será nuestro usuario en Github (en mi caso, "RaquelSG99"). Para `--global user.email` escribimos el correo electrónico con el que nos hemos dado de alta en Github (en mi caso "100386128@alumnos.uc3m.es").
+
 En el caso de que ubiésemos hecho algún commit (se explica lo que es en el apartado "comandos" de este documento) antes de configurar git, lo solucionamos con `git commit --amend --reset author` y una vez hecho esto seguimos los pasos anteriores normalmente.
 
 ### Cambiar "home" de Cygwin
@@ -28,10 +34,12 @@ Con `nano` editamos `/etc/nsswith.conf`, en el que escribimos `db_home: windows`
 
 ### Creación del alias *micasa*
 Como ya adelantábamos, creamos un alias equivalente a la ruta donde guardamos todos los archivos relacionados con la asignatura, en mi caso `/mnt/c/Users/Raquel Suárez Gago/Mis Documentos/PERIHUM/2do cuatri/Periodismo de datos/apuntes-periodismo-datos`. Claramente, es muy larga, y sería mucho más cómodo que pudiendo escribir algo más corto nos llevase directamente a ese directorio. Siguiendo los pasos que detallamos a continuación, será posible escribiendo tan solo `micasa`.
+
 Para establecer un alias tenemos que editar el archivo de configuración de Bash en `$HOME/.bashrc`. Lo abrimos con nano (igual que hicimos en el apartado anterior) para editarlo y así agregar el alias al archivo de configuración de bash. Una vez en él usaremos escribimos `"echo alias micasa="cd'/mnt/c/Users/Raquel Suárez Gago/Mis Documentos/PERIHUM/2do cuatri/Periodismo de datos/apuntes-periodismo-datos'" >> $HOME/.bashrc`. Salimos y volvemos a entrar en el emulador de la terminal y ya debería funcionar.
 
 ## Configuración y funcionamiento de un gestor de paquetes/programas del emulador de la terminal
 Un gestor de paquetes *mantiene un resgistro del software que está instalado en su ordenador y le permite instalar un software nuevo, actualizarlo a versiones más recientes o eliminar software de una manera sencilla* [Fuente:debian.org](https://www.debian.org/doc/manuals/aptitude/pr01s02.es.html#:~:text=%C2%BFQu%C3%A9%20es%20un%20gestor%20de%20paquetes%3F%20Un%20gestor,recientes%2C%20o%20eliminar%20software%20de%20una%20manera%20sencilla.). El de Ubuntu es `apt`y el de Cygwin `apt-cyg`. 
+
 Como ya adelantábamos al explicar la instalación de Cygwin, nos preguntó si queríamos añadir algunos paquetes. Eran necesarios para configurar estos gestores de paquetes y programas. Instalamos el gestor de paquetes con `lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg` y después ejecutamos `install apt-cyg /bin`. Para instalar programas hacemos `apt-cyg install` y como argumento lo que queramos instalar, por ejemplo, nano: `apt-cyg install nano`. 
 
 ## Versión del lenguaje de SHELL utilizado
